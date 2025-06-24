@@ -1,5 +1,41 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
+body.centered-page {
+  background-color: #0b6623; 
+  box-sizing: border-box;
+}
+.card {
+  text-align: center;
+  font-size: 80px;
+  display: inline-block;
+  background: white;
+  margin: auto;
+  height: 450px;
+  width: 300px;
+  padding: 20px;
+  padding-top: 170px;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+}
+  .top-suit{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 80px;
+  }
+  .bottom-suit{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 80px;
+}
+&.spades:top-suit, &.spades:bottom-suit {content: '\2660';}
+&.clubs:top-suit, &.clubs:bottom-suit {content: '\2663';}
+&.hearts:top-suit, &.hearts:bottom-suit {content: '\2665'; color: red;}
+&.diamns:top-suit, &.diamns:bottom-suit {content: '\2666'; color: red;}
 
-body{
-    background: white;
+
+/* Title style */
+.page-title {
+  color: white;
+  margin-bottom: 1.5rem;
 }
