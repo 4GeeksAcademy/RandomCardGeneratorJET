@@ -1,24 +1,61 @@
 import "bootstrap";
 import "./style.css";
 
-window.onload = () => {
+window.addEventListener("DOMContentLoaded", () => {
   //write your code here
-  const suits = generateRandomSuit()
-  const number = generateRandomNumber()
-  
-  document.querySelector(".top-suit").innerHTML=suits;
-    document.querySelector(".number").innerHTML=number;
-    document.querySelector(".bottom-suit").innerHTML=suits;
-};
+  generateCard();
+  setInterval(generateCard, 5000);
 
-function generateRandomNumber () {
-  let number = ["A","2","3","4","5","6","7","8","9","10","K","Q","J"];
-  let indexNumbers = Math.floor(Math.random() * number.length);
-  console.log(indexNumbers)
-  return number[indexNumbers];
-};
-function generateRandomSuit () {
-  let suits = ["♦", "♥", "♠", "♣"];
-  let indexSuit = Math.floor(Math.random() * suits.length);
-  return suits[indexSuit];
+const button = document.getElementById("generateButton");
+  button.addEventListener("click", generateCard);
+});
+
+function generateCard() {
+  const suit = generateRandomSuit();
+  const number = generateRandomNumber();
+
+  const topSuit = document.querySelector(".top-suit");
+  const bottomSuit = document.querySelector(".bottom-suit");
+  const numberSpan = document.querySelector(".number");
+
+  topSuit.innerHTML = suit;
+  bottomSuit.innerHTML = suit;
+  numberSpan.innerHTML = number;
+
+  const redSuits = ["♦", "♥"];
+  const color = redSuits.includes(suit) ? "red" : "black";
+
+  console.log("topSuit:", topSuit);
+  console.log("bottomSuit:", bottomSuit);
+  console.log("numberSpan:", numberSpan);
+
+  topSuit.style.color = color;
+  bottomSuit.style.color = color;
+  numberSpan.style.color = color;
+}
+
+function generateRandomNumber() {
+  const numbers = [
+    "A",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "K",
+    "Q",
+    "J",
+  ];
+  const index = Math.floor(Math.random() * numbers.length);
+  return numbers[index];
+}
+
+function generateRandomSuit() {
+  const suits = ["♦", "♥", "♠", "♣"];
+  const index = Math.floor(Math.random() * suits.length);
+  return suits[index];
 }

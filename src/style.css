@@ -28,14 +28,16 @@ body.centered-page {
     right: 20px;
     font-size: 80px;
 }
-&.spades:top-suit, &.spades:bottom-suit {content: '\2660';}
-&.clubs:top-suit, &.clubs:bottom-suit {content: '\2663';}
-&.hearts:top-suit, &.hearts:bottom-suit {content: '\2665'; color: red;}
-&.diamns:top-suit, &.diamns:bottom-suit {content: '\2666'; color: red;}
-
+.number {
+  font-size: 80px;
+}
 
 /* Title style */
 .page-title {
   color: white;
   margin-bottom: 1.5rem;
+}
+#generateButton {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
 }
